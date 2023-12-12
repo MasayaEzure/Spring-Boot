@@ -1,4 +1,4 @@
-package com.example.demo.Controller;
+package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +20,20 @@ public class EmplyoeeController {
 	private final EmployeeRepository repository;
 
 	@GetMapping("/")
+	public String showList(Model model) {
+		model.addAttribute("employees", repository.findAll());
+		return "index";
+	}
+
+	@GetMapping("/add")
 	public String addEmployee(@ModelAttribute Employee employee) {
 		return "form";
+	}
+
+	@GetMapping("/find")
+	public String findSample(Model model) {
+		model.addAttribute("employees", repository.findByNameLike("%田%"));
+		return "index";
 	}
 
 	@PostMapping("/process")
@@ -39,7 +51,7 @@ public class EmplyoeeController {
 		return "form";
 	}
 
-	@GetMapping("/edit/{id}")
+	@GetMapping("/delete/{id}")
 	public String deleteEmployee(@PathVariable Long id) {
 		repository.deleteById(id);
 		return "redirect:/";
