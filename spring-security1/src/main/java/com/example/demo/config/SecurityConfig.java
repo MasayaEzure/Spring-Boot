@@ -16,13 +16,13 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
 	@Bean
-	public PasswordEncoder passwordEncoder() {
+	PasswordEncoder passwordEncoder() {
 		// 暗号化用に BCrypt を使用
 		return new BCryptPasswordEncoder();
 	}
 
 	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http
 		// 認証リクエストの設定
 		.authorizeHttpRequests(auth -> auth
@@ -33,7 +33,7 @@ public class SecurityConfig {
 	}
 
 	@Bean
-	public UserDetailsService userDetailsService() {
+	UserDetailsService userDetailsService() {
 		// パスワードの暗号化
 		UserBuilder users = User.builder().passwordEncoder(passwordEncoder()::encode);
 		// "user"を用意
