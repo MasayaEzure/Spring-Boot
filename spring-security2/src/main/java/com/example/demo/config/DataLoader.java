@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.model.SiteUser;
 import com.example.demo.repository.SiteUserRepository;
+import com.example.demo.util.Authority;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,6 +24,13 @@ public class DataLoader implements ApplicationRunner {
 		SiteUser user = new SiteUser();
 		user.setUsername("admin");
 		user.setPassword(passwordEncoder.encode("password"));
-		userRepository.save(user);
+		user.setEmail("admin@example.com");
+		user.setGender(0);
+		user.setAdmin(true);
+		user.setAuthority(Authority.ADMIN);
+		// ユーザの存在チェック
+		if (userRepository.findByUsername(user.getUsername()).isEmpty()) {
+			userRepository.save(user);
+		}
 	}
 }
