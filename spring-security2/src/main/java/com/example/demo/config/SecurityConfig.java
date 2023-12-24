@@ -31,6 +31,7 @@ public class SecurityConfig {
 		http.authorizeHttpRequests(auth -> auth
 				// css, js, img などの静的リソースのアクセスを可能にする
 				.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+				// Spring Boot 3.0 から mvcMatchers() → requestMatchers() に変更
 				// 「/register」と「/login」をアクセス可能にする
 				.requestMatchers("/register", "/login").permitAll()
 				// 「/admin」配下は、ADMIN ユーザだけアクセス可能
