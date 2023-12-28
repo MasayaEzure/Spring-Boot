@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{layout/layout}">
+ layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8" th:remove="tag">
 </head>
@@ -11,6 +11,7 @@
         <div class="container pt-4">
             <!-- 左右中央に配置 -->
             <div class="row justify-content-center">
+
                 <div class="card shadow" style="max-width: 480px;">
                     <div class="card-body">
                         <h3 class="card-title mb-3 text-center text-navy">
@@ -26,6 +27,7 @@
                                 <div class="invalid-feedback" th:errors="*{username}">
                                 </div>
                             </div>
+
                             <div class="mb-3">
                                 <label for="password" class="form-label">
                                     <span class="badge bg-danger">必須</span>
@@ -35,6 +37,7 @@
                                 <div class="invalid-feedback" th:errors="*{password}">
                                 </div>
                             </div>
+
                             <div class="mb-3">
                                 <label for="email" class="form-label">
                                     <span class="badge bg-danger">必須</span>
@@ -44,6 +47,7 @@
                                 <div class="invalid-feedback" th:errors="*{password}">
                                 </div>
                             </div>
+
                             <div class="mb-3">
                                 性別
                                 <div class="ms-2 form-check" th:each="gender : ${T(com.example.demo.util.Type).GENDERS}">
@@ -52,16 +56,19 @@
                                     </label>
                                 </div>
                             </div>
+
                             <div class="mb-3 form-check">
                                 <input class="form-check-input" type="checkbox" th:field="*{admin}">
                                 <lable class="form-check-label" th:for="${#ids.prev('admin')}">
                                     管理者 (Admin) として登録する
                                 </lable>
                             </div>
+
                             <button class="w-100 btn btn-navy" type="submit">登録</button>
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>
