@@ -1,0 +1,14 @@
+$(function() {
+    $("#user-table").dataTable({
+        // DataTables を日本語化する
+        language: {
+            url: "/webjars/datatables-plugins/il8n/ja.json",
+            "buttons": {
+                "csv": "CSV"
+            }
+        },
+        // 各種ボタンを有効化する
+        dom: "Bfrtip",
+        buttons: ["excelHtml5", "csvHtml5", "print"]
+    });
+});
