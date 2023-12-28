@@ -2,7 +2,7 @@ $(function() {
     $("#user-table").dataTable({
         // DataTables を日本語化する
         language: {
-            url: "/webjars/datatables-plugins/il8n/ja.json",
+            url: "/webjars/datatables-plugins/i18n/ja.json",
             "buttons": {
                 "csv": "CSV"
             }
