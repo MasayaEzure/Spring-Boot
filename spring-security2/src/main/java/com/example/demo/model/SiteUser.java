@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import com.example.demo.util.Authority;
+import com.example.demo.validator.UniqueLogin;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +23,7 @@ public class SiteUser {
 	private Long id;
 
 	@Size(min = 2, max = 20)
+	@UniqueLogin
 	private String username;
 
 	@Size(min = 4, max = 255)
