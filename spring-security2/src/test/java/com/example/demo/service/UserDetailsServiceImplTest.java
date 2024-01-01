@@ -42,7 +42,6 @@ class UserDetailsServiceImplTest {
 
 		// 検証
 		assertThat(actual.getUsername()).isEqualTo(user.getUsername());
-//		assertEquals(user.getUsername(), actual.getUsername());
 	}
 
 	@Test
