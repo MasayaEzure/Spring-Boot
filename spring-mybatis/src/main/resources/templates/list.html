@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+ layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8" th:remove="tag">
+</head>
+<body>
+
+    <!-- コンテンツの表示 -->
+    <div layout:fragment="content" class="content-fluid">
+        <h4>My Batis APP</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>名前</th>
+                    <th>メール</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="teacher : ${page}" th:object="${teacher}">
+                    <td th:text="*{id}"></td>
+                    <td th:text="*{userName}"></td>
+                    <td th:text="*{email}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
