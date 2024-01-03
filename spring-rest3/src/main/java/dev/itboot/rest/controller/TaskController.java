@@ -45,12 +45,12 @@ public class TaskController {
 	@PutMapping("/{id}")
 	public Task save(@RequestBody Task newTask, @PathVariable Long id) {
 		return repository.findById(id).map(task -> {
-			// 該当のIDが存在すれば、更新する
+			// 該当のIDが存在する
 			task.setName(newTask.getName());
 			task.setCompleted(newTask.getCompleted());
 			return repository.save(task);
 		}).orElseGet(() -> {
-			// 該当のIDが存在しなければ、登録する
+			// 該当のIDが存在しない
 			newTask.setId(id);
 			return repository.save(newTask);
 		});
