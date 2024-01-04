@@ -28,11 +28,13 @@
                     <td th:text="*{email}"></td>
                     <td class="py-1">
                         <a th:href="@{/edit/{id}(id=*{id})}" class="btn btn-outline-primary">
-                            <i class="bi bi-pencil-fill"></i> 編集
+                            <i class="bi bi-pencil-fill"></i>
+                            編集
                         </a>
 
                         <a th:href="@{/delete/{id}(id=*{id})}" class="btn btn-outline-danger">
-                            <i class="bi bi-trash-fill"></i> 削除
+                            <i class="bi bi-trash-fill"></i>
+                            削除
                         </a>
                     </td>
                 </tr>
@@ -42,7 +44,8 @@
         <div class="row">
             <div class="col-auto me-auto">
                 <a th:href="@{/add}" class="btn btn-outline-primary">
-                    <i class="bi bi-plus-lg"></i> 新規追加
+                    <i class="bi bi-plus-lg"></i>
+                    新規追加
                 </a>
             </div>
             <!-- ページネーションを追加 -->
