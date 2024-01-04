@@ -30,11 +30,11 @@ public interface TeacherMapper {
 
 	@Update(""
 			+ "UPDATE teacher SET "
-			+ "user_name = #{userName}, email = ${email} "
+			+ "user_name = #{userName}, email = #{email} "
 			+ "WHERE id = #{id}"
 			)
 	int updateByPrimaryKey(Teacher record);
 
-	@Delete("DELETE * FROM teacher WHERE id = #{id}")
+	@Delete("DELETE FROM teacher WHERE id = #{id}")
 	int deleteByPrimaryKey(Long id);
 }
