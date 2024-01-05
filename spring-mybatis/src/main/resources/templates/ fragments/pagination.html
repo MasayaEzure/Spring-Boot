@@ -10,20 +10,27 @@
             <nav>
                 <ul class="pagination">
                     <li th:if="${page.hasPrevious()}" class="page-item">
-                        <a class="page-link" th:if="@{/(page=${page.number - 1})}">前へ</a>
+                        <a class="page-link"
+                         th:if="@{/(page=${page.number - 1})}">前へ</a>
                     </li>
 
-                    <th:block th:each="i : ${#numbers.sequence(0, page.totalPage - 1)}" th:switch="${page.numner}">
+                    <th:block th:each="i : ${#numbers.sequence(0, page.totalPage - 1)}"
+                     th:switch="${page.numner}">
                         <li th:case="${i}" class="page-item active">
-                            <a class="page-link" th:text="${i + 1}"></a>
+                            <a class="page-link"
+                             th:text="${i + 1}"></a>
                         </li>
                         <li th:case="*" class="page-item">
-                            <a class="page-link" th:if="@{/(page=${i})}" th:text="${i + 1}"></a>
+                            <a class="page-link"
+                             th:if="@{/(page=${i})}"
+                              th:text="${i + 1}"></a>
                         </li>
                     </th:block>
 
-                    <li th:if="${page.hasNext()}" class="page-item">
-                        <a class="page-link" th:href="@{/page=${page.number + 1})}">次へ</a>
+                    <li th:if="${page.hasNext()}"
+                     class="page-item">
+                        <a class="page-link"
+                         th:href="@{/page=${page.number + 1})}">次へ</a>
                     </li>
                 </ul>
             </nav>
