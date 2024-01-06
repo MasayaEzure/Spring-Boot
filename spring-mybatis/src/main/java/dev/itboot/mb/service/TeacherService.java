@@ -2,7 +2,6 @@ package dev.itboot.mb.service;
 
 import java.util.List;
 
-import org.apache.ibatis.session.RowBounds;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -21,10 +20,7 @@ public class TeacherService {
 	private final TeacherMapper mapper;
 
 	public Page<Teacher> selectAll(Pageable pageable) {
-		RowBounds rowBounds = new RowBounds(
-				(int)pageable.getOffset(), pageable.getPageSize());  // ページ位置、ページの表示件数
-
-		List<Teacher> teachers = mapper.selectAll(rowBounds);  // MyBatisのページング情報を渡す
+		List<Teacher> teachers = mapper.selectAll(pageable);  // 引数をpagebleに変更
 		Long total = mapper.count();
 	
 		return new PageImpl<>(teachers, pageable, total);  // 内容、ページング情報、合計件数

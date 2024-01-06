@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dev.itboot.mb.repository.TeacherMapper">
-    <!-- 以下を追加 -->
     <select id="count" resultType="Long">
         SELECT COUNT(*) FROM teacher
     </select>
 
     <select id="selectAll" resultType="Teacher">
         SELECT * FROM teacher
+        <if test="pageable.paged">
+            LIMIT #{pageable.offset}, #{pageable.pageSize}
+        </if>
     </select>
 
     <select id="selectByPrimaryKey" resultType="Teacher">
