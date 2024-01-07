@@ -13,10 +13,10 @@ public interface TeacherMapper {
 	// 以下を追加
 	Long count();
 
-	// RowBoundsを使用しない方法で再実装
+	// RowBoundsを使用しない方法で実装
 	List<Teacher> selectAll(@Param("pageable") Pageable pageable);
 
-	// 各SQLはTeacherMapper.xmlに記述したため削除
+	// 各SQLはTeacherMapper.xmlに記述
 	List<Teacher> selectAll();
 
 	Teacher selectByPrimaryKey(Long id);
