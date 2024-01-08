@@ -20,9 +20,9 @@ public class TeacherService {
 	private final TeacherMapper mapper;
 
 	public Page<Teacher> selectAll(Pageable pageable) {
-		List<Teacher> teachers = mapper.selectAll(pageable);  // 引数をpagebleに変更
+		List<Teacher> teachers = mapper.selectAll(pageable);
 		Long total = mapper.count();
-	
+
 		return new PageImpl<>(teachers, pageable, total);  // 内容、ページング情報、合計件数
 	}
 

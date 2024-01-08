@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Teacher {
-	private Long   id;
+	private Long id;
 
 	@NotBlank
 	@Size(max = 60)

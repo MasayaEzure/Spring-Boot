@@ -10,7 +10,6 @@ import dev.itboot.mb.model.Teacher;
 
 @Mapper
 public interface TeacherMapper {
-	// 以下を追加
 	Long count();
 
 	// RowBoundsを使用しない方法で実装
