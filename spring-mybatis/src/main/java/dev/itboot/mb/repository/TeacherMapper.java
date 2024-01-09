@@ -12,10 +12,8 @@ import dev.itboot.mb.model.Teacher;
 public interface TeacherMapper {
 	Long count();
 
-	// RowBoundsを使用しない方法で実装
 	List<Teacher> selectAll(@Param("pageable") Pageable pageable);
 
-	// 各SQLはTeacherMapper.xmlに記述
 	List<Teacher> selectAll();
 
 	Teacher selectByPrimaryKey(Long id);

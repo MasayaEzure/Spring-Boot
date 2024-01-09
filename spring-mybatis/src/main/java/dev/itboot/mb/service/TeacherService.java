@@ -23,7 +23,7 @@ public class TeacherService {
 		List<Teacher> teachers = mapper.selectAll(pageable);
 		Long total = mapper.count();
 
-		return new PageImpl<>(teachers, pageable, total);  // 内容、ページング情報、合計件数
+		return new PageImpl<>(teachers, pageable, total);
 	}
 
 	public List<Teacher> selectAll() {

@@ -11,7 +11,6 @@
     <div layout:fragment="content" class="content-fluid">
         <h4>My Batis APP</h4>
 
-        <!-- page.totalPagesに変更 -->
         <table th:if="${page.totalPages > 0}" class="table">
             <thead>
                 <tr>
@@ -52,7 +51,6 @@
                 </a>
             </div>
 
-            <!-- ページネーションを追加 -->
             <div th:replace="~{fragments/pagination :: pagination}">
             </div>
 

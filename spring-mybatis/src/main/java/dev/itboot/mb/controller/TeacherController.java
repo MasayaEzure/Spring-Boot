@@ -24,7 +24,7 @@ public class TeacherController {
 	@GetMapping("/")
 	public String getAllTeachers(Model model, 
 			@PageableDefault(size = 5) Pageable pageable) {
-		model.addAttribute("page", service.selectAll(pageable));  // ページング情報をそのまま渡す
+		model.addAttribute("page", service.selectAll(pageable));
 		return "list";
 	}
 
