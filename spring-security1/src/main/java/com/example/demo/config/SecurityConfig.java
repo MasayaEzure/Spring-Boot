@@ -17,37 +17,33 @@ public class SecurityConfig {
 
 	@Bean
 	PasswordEncoder passwordEncoder() {
-		// 暗号化用に BCrypt を使用
 		return new BCryptPasswordEncoder();
 	}
 
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http
-		// 認証リクエストの設定
 		.authorizeHttpRequests(auth -> auth
-				.anyRequest().authenticated() // 認証するように設定
+				.anyRequest().authenticated()
 				)
-		.formLogin(); // フォームベース認証の設定
+		.formLogin();
 		return http.build();
 	}
 
 	@Bean
 	UserDetailsService userDetailsService() {
-		// パスワードの暗号化
 		UserBuilder users = User.builder().passwordEncoder(passwordEncoder()::encode);
-		// "user"を用意
+
 		UserDetails user = users.username("user")
 				.password("password")
 				.authorities("USER")
 				.build();
-		// "admin"を用意
+
 		UserDetails admin = users.username("admin")
 				.password("password")
 				.authorities("ADMIN")
 				.build();
 
-		// メモリ内認証を使用
 		return new InMemoryUserDetailsManager(user, admin);
 	}
 }
