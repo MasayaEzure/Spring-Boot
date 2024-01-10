@@ -20,7 +20,7 @@ public class DataLoader implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		// "admin"ユーザの設定
+
 		SiteUser user = new SiteUser();
 		user.setUsername("admin");
 		user.setPassword(passwordEncoder.encode("password"));
@@ -28,7 +28,7 @@ public class DataLoader implements ApplicationRunner {
 		user.setGender(0);
 		user.setAdmin(true);
 		user.setAuthority(Authority.ADMIN);
-		// ユーザの存在チェック
+
 		if (userRepository.findByUsername(user.getUsername()).isEmpty()) {
 			userRepository.save(user);
 		}

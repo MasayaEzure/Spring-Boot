@@ -29,26 +29,22 @@ public class SecurityConfig {
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
 		http.authorizeHttpRequests(auth -> auth
-				// css, js, img などの静的リソースのアクセスを可能にする
 				.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-				// Spring Boot 3.0 から mvcMatchers() → requestMatchers() に変更
-				// 「/register」と「/login」をアクセス可能にする
 				.requestMatchers("/register", "/login").permitAll()
-				// 「/admin」配下は、ADMIN ユーザだけアクセス可能
 				.requestMatchers("/admin/**").hasAuthority(Authority.ADMIN.name())
 				.anyRequest().authenticated()
 				)
 		.formLogin(login -> login
-				.loginPage("/login") // ログイン時のURL
-				.defaultSuccessUrl("/") // 認証後にリダイレクトする場所
+				.loginPage("/login")
+				.defaultSuccessUrl("/")
 				.permitAll()
 				)
-		// ログアウトの設定
 		.logout(logout -> logout
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // ログアウト時のURL
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				.permitAll()
 				)
-		.rememberMe().key("Unique and Secret"); // ブラウザを閉じて再度閉じた場合でも、ログインの状態を保持できる
+		.rememberMe().key("Unique and Secret");
+
 		return http.build();
 	}
 }

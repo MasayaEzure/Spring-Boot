@@ -12,6 +12,6 @@ public class Type {
 		genders.put(1, "男性");
 		genders.put(2, "女性");
 		genders.put(3, "その他");
-		GENDERS = Collections.unmodifiableMap(genders); // Mapを定数として利用
+		GENDERS = Collections.unmodifiableMap(genders);
 	}
 }
