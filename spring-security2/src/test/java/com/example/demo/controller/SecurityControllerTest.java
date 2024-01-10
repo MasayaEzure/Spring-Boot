@@ -30,11 +30,10 @@ class SecurityControllerTest {
 	@DisplayName("登録エラーがあるとき、エラー表示することを期待します")
 	void whenThereIsRegistrationError_expectToSeeErrors() throws Exception {
 		mockMvc
-		// リクエストを実行
 		.perform(
-				post("/register")  // HTTPのPOSTリクエストを使用する
-				.flashAttr("user", new SiteUser())  // 入力の属性を設定
-				.with(csrf())  // CSRFトークンを自動挿入する
+				post("/register")
+				.flashAttr("user", new SiteUser())
+				.with(csrf())
 				)
 				.andExpect(model().hasErrors())
 				.andExpect(view().name("register"));
@@ -53,9 +52,9 @@ class SecurityControllerTest {
 	
 		mockMvc.perform(post("/register")
 				.flashAttr("user", user).with(csrf()))
-		.andExpect(model().hasNoErrors())  // エラーがないことを検証
-		.andExpect(redirectedUrl("/login?register"))  //　指定したURLにリダイレクトするかを検証
-		.andExpect(status().isFound());  // ステータスコード 302 の検証
+		.andExpect(model().hasNoErrors())
+		.andExpect(redirectedUrl("/login?register"))
+		.andExpect(status().isFound());
 	}
 
 	@Test
@@ -63,8 +62,8 @@ class SecurityControllerTest {
 	@WithMockUser(username="admin", authorities="ADMIN")
 	void whenLoggedInAsAdminUser_expectToSeeListOfUsers() throws Exception {
 		mockMvc.perform(get("/admin/list"))
-		.andExpect(status().isOk())  // ステータスコード 200 の検証
-		.andExpect(content().string(containsString("ユーザ一覧")))  // HTML の表示内容に、指定した文字列を含むかの検証
-		.andExpect(view().name("list"));  // 指定した HTML を表示
+		.andExpect(status().isOk())
+		.andExpect(content().string(containsString("ユーザ一覧")))
+		.andExpect(view().name("list"));
 	}
 }

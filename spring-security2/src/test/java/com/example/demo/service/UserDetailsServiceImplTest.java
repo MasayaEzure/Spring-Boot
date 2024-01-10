@@ -28,7 +28,7 @@ class UserDetailsServiceImplTest {
 	@Test
 	@DisplayName("ユーザ名が存在するとき、ユーザ詳細を取得することを期待します")
 	void whenUsernameExists_expectToGetUserDetails() {
-		// 準備
+
 		SiteUser user = new SiteUser();
 		String username = "Yamada";
 		user.setUsername(username);
@@ -37,17 +37,15 @@ class UserDetailsServiceImplTest {
 		user.setAuthority(Authority.USER);
 		repository.save(user);
 
-		// 実行
 		UserDetails actual = service.loadUserByUsername(username);
 
-		// 検証
 		assertThat(actual.getUsername()).isEqualTo(user.getUsername());
 	}
 
 	@Test
 	@DisplayName("ユーザ名が存在しないとき、例外をスローします")
 	void whenUsernameDoesNotExist_throwException() {
-		// 実行と検証を同時にする
+
 		assertThrows(UsernameNotFoundException.class,
 				() -> service.loadUserByUsername("Yamazaki"));
 	}
