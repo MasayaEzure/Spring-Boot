@@ -17,7 +17,7 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-		<!-- springdoc-openapiを追加 -->
+
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
