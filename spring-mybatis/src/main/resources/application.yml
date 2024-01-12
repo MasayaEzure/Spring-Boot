@@ -1,7 +1,0 @@
-# 共通環境
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: true
-  type-aliases-package: dev.itboot.mb.model
-server:
-  port: 5000
