@@ -5,9 +5,9 @@ mybatis:
 server:
   port: 5000
 
-spring:
-  datasource:
+# spring:
+  # datasource:
     # driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql:localhost/test
-    username: dbuser
-    password: dbpass
+    # url: jdbc:mysql://localhost/test
+    # username: dbuser
+    # password: dbpass
