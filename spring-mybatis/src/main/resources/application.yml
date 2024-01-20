@@ -5,9 +5,14 @@ mybatis:
 server:
   port: 5000
 
-# spring:
-  # datasource:
-    # driver-class-name: com.mysql.jdbc.Driver
-    # url: jdbc:mysql://localhost/test
-    # username: dbuser
-    # password: dbpass
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://awseb-e-xbuadehgum-stack-awsebrdsdatabase-erct3k0vxdno.crgmaiu24v2c.ap-northeast-1.rds.amazonaws.com:3306/ebdb
+    username: admin
+    password: hfymq322
+  sql:
+    init:
+      mode: always
