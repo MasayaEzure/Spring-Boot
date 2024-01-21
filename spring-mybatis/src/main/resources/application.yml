@@ -1,3 +1,4 @@
+# 共通
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
@@ -5,6 +6,7 @@ mybatis:
 server:
   port: 5000
 
+# 開発環境
 spring:
   config:
     activate:
